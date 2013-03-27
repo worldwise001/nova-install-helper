@@ -3,23 +3,23 @@
 
 pkgname=honeyd
 pkgver=git
-pkgrel=20120817
+pkgrel=20130326
 pkgdesc="A small daemon that creates virtual hosts on a network."
-depends=('libdnet' ' libevent' 'libpcap' 'pcre' 'zlib' 'libedit' 'bison' 'flex' 'libtool' 'automake' 'rrdtool')
-makedepends=('unzip')
-optdepends=('python2')
+depends=('libdnet' ' libevent' 'libpcap' 'pcre' 'zlib' 'libedit' 'libtool')
+makedepends=('unzip' 'bison' 'flex' 'automake')
+optdepends=('rrdtool' 'python2')
 arch=(i686 x86_64)
-url="https://github.com/DataSoft/Honeyd"
+url="https://github.com/worldwise001/Honeyd"
 backup=('etc/honeyd/config.default' 'etc/conf.d/honeyd')
 license=("GPL")
 
 build()
 {
 	cd $srcdir
-	wget https://github.com/DataSoft/Honeyd/zipball/master
+	wget https://github.com/worldwise001/Honeyd/zipball/master
 	mv master $pkgname-$pkgver-src.zip
 	unzip $pkgname-$pkgver-src.zip
-	mv DataSoft-Honeyd-??????? $pkgname-$pkgver
+	mv worldwise001-Honeyd-??????? $pkgname-$pkgver
 	cd $pkgname-$pkgver
 
 	./autogen.sh
